@@ -6,7 +6,9 @@ import { UserCircleIcon } from '@heroicons/react/24/solid'
 import { auth } from "../firebase";
 import { useNavigate } from 'react-router-dom'
 
+
 function Signup(props) {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [notification, setNotification] = useState(false);
@@ -37,13 +39,15 @@ function Signup(props) {
             }
             return;
         }
-        auth.signInWithEmailAndPassword(email,password).then(()=>{
+        auth.signInWithEmailAndPassword(email,password).then((authUser)=>{
             setEmail('');
             setPassword('');
             setNotification({
                 type: 'success',
                 message: 'done'
             })
+            console.log(authUser);
+            navigate('/auth/');
         }).catch((err)=>{
             setNotification({
                 type: 'success',

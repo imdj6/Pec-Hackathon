@@ -4,13 +4,15 @@ import { UserPlusIcon } from '@heroicons/react/24/solid'
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 import './SignIn.css'
 import { auth } from "../firebase";
+import { db } from "../firebase";
 function SignIn(props) {
+    
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [cpassword, setCpassword] = useState("");
     const [notification, setNotification] = useState(false);
-
+    
     const [error, setError] = useState({
         username: false,
         email: false,
@@ -61,8 +63,12 @@ function SignIn(props) {
         }
         auth.createUserWithEmailAndPassword(email, cpassword).then((authUser) => {
             authUser.user.updateProfile({
-                displayName: username,
+                displayName:username,
                 photoURL: "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png",
+            })
+            db.collection('users').add({
+                name:username,
+                uid:authUser.user.uid,
             })
             setEmail('');
             setCpassword('');
@@ -72,6 +78,7 @@ function SignIn(props) {
                 type: 'success',
                 message: 'done'
             })
+            
         }).catch((error) => {
             console.log(error)
         })
