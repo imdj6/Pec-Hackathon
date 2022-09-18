@@ -1,0 +1,47 @@
+.split-group{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap:10px 
+}
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 85%;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-field {
+    padding: 11px;
+    border-radius: 4px;
+    width: 100%;
+    outline: none;
+    min-width: 30px;
+    height: fit-content;
+    border: 1px solid #B8B8B8;
+}
+
+.brand-container {
+    margin-left: -12px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.signup-link {
+    font-size: 0.85rem;
+    margin-top: 25px;
+}
+
+.signup-colored {
+    color: #4C3DFF;
+    cursor: pointer;
+}
