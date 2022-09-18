@@ -14,10 +14,10 @@ function Auth() {
     const [data, setData] = useState(null);
     const [progresspercent, setProgresspercent] = useState(0);
     const [imgUrl, setImgUrl] = useState(null);
-    const ShareDocs = () => {
+    // const ShareDocs = () => {
 
 
-    }
+    // }
     const DeleteDocs = () => {
 
     }
@@ -170,38 +170,32 @@ function Auth() {
                     <hr className='mt-3 w-full bg-[#6a5feb]' style={{ width: '80vw' }} />
                     <div className='flex flex-wrap space-x-3'>
                         {
-                            data?.map((d, index) => {
-                                return (
-                                    <>
-                                        <div className="card mt-3" style={{ width: '18rem' }} key={index}
-                                        >
-                                            <img src="https://wwwcdn.imo.org/localresources/en/OurWork/PublishingImages/IMO%20Circular%20image_640x360.jpg" className="card-img-top" alt="..." onClick={() => {
-                                                window.open(d.data.files, '_blank');
-                                            }} />
-                                            <div className='flex justify-between'>
-                                                <div>
-                                                    <ArchiveBoxIcon className="h-9 w-9 p-2 cursor-pointer text-[#6a5feb]" onClick={DeleteDocs} />
-                                                </div>
-                                                {/* <div>
-                                                    <ShareIcon className="h-9 w-9 p-2 cursor-pointer   text-[#6a5feb]" onClick={ShareDocs} />
-                                                </div> */}
-                                                <div>
+                            data?.map((d, index) => (
+                                <>
+                                    <div className="card mt-3" style={{ width: '18rem' }} key={index}
+                                    >
+                                        <img src="https://wwwcdn.imo.org/localresources/en/OurWork/PublishingImages/IMO%20Circular%20image_640x360.jpg" className="card-img-top" alt="..." onClick={() => {
+                                            window.open(d.data.files, '_blank')
+                                        } } />
+                                        <div className='flex justify-between'>
+                                            <div>
+                                                <ArchiveBoxIcon className="h-9 w-9 p-2 cursor-pointer text-[#6a5feb]" onClick={DeleteDocs} />
+                                            </div>
+                                            <div>
                                                 <a href="mailto:?subject=Checkout the shared document..&amp;body=Check out this document http://www.website.com."
                                                     title="Checkout the document shared by me..">
                                                     <img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png"
-                                                    className='h-9 w-9 p-1 cursor-pointer'
-                                                    />
+                                                        className='h-9 w-9 p-1 cursor-pointer' />
                                                 </a>
-                                                </div>
-                                                
                                             </div>
 
-
-
                                         </div>
-                                    </>
-                                )
-                            })
+
+
+
+                                    </div>
+                                </>
+                            ))
                         }
                     </div>
 
